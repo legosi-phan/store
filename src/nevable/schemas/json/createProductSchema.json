@@ -1,0 +1,14 @@
+{ 
+  "type": "object",
+  "required": [
+    "name",
+    "description",
+    "price"
+  ],
+  "properties": {
+    "name": {"type": "string"},
+    "description": {"type": "string"},
+    "price": {"type": ["number", "string"]},
+    "discount": {"type": "integer"}
+  }
+}
