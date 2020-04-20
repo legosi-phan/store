@@ -29,10 +29,18 @@ const {
 const appConfig = require('./configs');
 global.appConfig = appConfig;
 const { auth } = require('./middlewares');
+const exphbs = require('express-handlebars');
 
 const apiLimiter = rateLimit(appConfig.apiLimiter);
 
 const app = express();
+app.engine('hbs', exphbs({
+  layoutsDir: path.join(__dirname, '..', '/views/_layouts'),
+  defaultLayout: 'main',
+  partialsDir: path.join(__dirname, '..', '/views/_partials'),
+  extname: '.hbs'
+}));
+app.set('view engine', 'hbs');
 
 app.use(helmet());
 app.use(cors());
@@ -42,6 +50,9 @@ app.use(bodyParser.json());
 app.use(auth);
 app.use(apiLimiter);
 
+app.get('/', (req, res) => {
+  return res.render('home');
+})
 app.use('/user', user);
 app.use('/product', product);
 
