@@ -65,3 +65,5 @@ test/types/index.js
 # firebase account private key
 serviceAccountKey.json
 /dist
+
+images/*

@@ -1,2 +1,2 @@
 # store
-practice project
+project for practice
