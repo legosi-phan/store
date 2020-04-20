@@ -42,8 +42,8 @@ app.use(bodyParser.json());
 app.use(auth);
 app.use(apiLimiter);
 
-app.use('/', user);
-app.use('/', product);
+app.use('/user', user);
+app.use('/product', product);
 
 // import resolvers from './graphql/resolvers';
 // import typeDefs from './graphql/typeDefs';
